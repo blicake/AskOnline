@@ -1,25 +1,30 @@
 let usernames = [];
 
+let currentUsername = "";
+
 function addUsername() {
   const usernameInput = document.getElementById('usernameInput');
   const username = usernameInput.value;
 
-  if (username && !usernames.includes(username)) {
-    usernames.push(username);
+  if (username) {
+    currentUsername = username;
+    document.getElementById('displayedUsername').innerText = `Logged in as: ${username}`; // Display the username
     usernameInput.value = '';
   }
 }
 
-function addQuestion() {
-  const input = document.getElementById('questionInput');
-  const questionList = document.getElementById('questionList');
-  const questionText = input.value;
-  input.value = '';
 
-  if (questionText) {
+function addQuestion() {
+  const questionInput = document.getElementById('questionInput');
+  const questionText = questionInput.value;
+  
+  if (currentUsername && questionText) {
+    const questionList = document.getElementById('questionList');
     const listItem = document.createElement('li');
-    listItem.innerText = questionText;
+    listItem.innerText = `${currentUsername}: ${questionText}`; // Connect the question to the current username
+    listItem.addEventListener('click', viewAnswers);
     questionList.appendChild(listItem);
+    questionInput.value = '';
   }
 }
 
