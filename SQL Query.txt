@@ -1,0 +1,14 @@
+SELECT *
+FROM questions 
+JOIN users ON questions.user = users.id
+WHERE users.name = 'blicake';
+
+SELECT *
+FROM answers
+JOIN users ON answers.user = users.id
+WHERE users.name = 'user1';
+
+SELECT *
+FROM answers
+JOIN questions ON answers.q = questions.id
+WHERE questions.id = 1;
