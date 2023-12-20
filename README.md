@@ -1,2 +1,2 @@
 # AskOnline
-A website, where people can ask ans answer questions
+A website, where people can ask and answer questions
